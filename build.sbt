@@ -1,4 +1,4 @@
-val dottyVersion = "0.15.0-RC1"
+val dottyVersion = "0.17.0-RC1"
 
 lazy val root = (project in file(".")).
   settings(
@@ -7,7 +7,7 @@ lazy val root = (project in file(".")).
 
     scalaVersion := dottyVersion,
 
-    libraryDependencies +=  ("org.typelevel" %% "cats-core" % "1.6.0").withDottyCompat(scalaVersion.value),
+    libraryDependencies +=  ("org.typelevel" %% "cats-core" % "1.6.1").withDottyCompat(scalaVersion.value),
 
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
   )
