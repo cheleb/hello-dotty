@@ -24,3 +24,7 @@ object TraitsParameters extends App {
    m.debug()
 
 }
+
+
+
+
