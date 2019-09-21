@@ -1,0 +1,4 @@
+package hellodotty
+
+
+object PowerMacro
