@@ -7,13 +7,13 @@ trait Ord[T] {
     def (x: T) > (y: T) = compare(x, y) > 0 
 }
 
-given IntOrd as Ord[Int] {
+given IntOrd : Ord[Int] {
     def compare(x: Int, y: Int) = (x - y)
 }
 
 case class Person(age: Int)
 
-given PersonOrd as Ord[Person] given(ord: Ord[Int]) {
+given PersonOrd : Ord[Person] (given ord: Ord[Int]) {
     def compare(x: Person, y: Person) = ord.compare(x.age,y.age)
 }
 
