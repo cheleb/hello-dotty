@@ -12,7 +12,7 @@ final class Off extends State
 @implicitNotFound("State must be off")
 class IsOff[A <: State]
 object IsOff {
-    implicit def isOff: IsOff[Off] = new IsOff[Off]
+    erased implicit def isOff: IsOff[Off] = new IsOff[Off]
 }
 
 
@@ -24,7 +24,7 @@ object IsOn {
 
 
 class Machine[S <: State]{
-    def turnOn(implicit ev: IsOff[S]): Machine[On] = {
+    def turnOn(given erased ev: IsOff[S]): Machine[On] = {
         println("Wroum wroum")
         new Machine[On]
     }
