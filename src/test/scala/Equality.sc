@@ -1,10 +1,15 @@
 
-//import scala.language.strictEquality
+import scala.language.strictEquality
 
-case class Box[T](a: T)// derives Eql
 
-//given as Eql[Box, Box] = Eql.derived
+case class BoxA[T,U](a: T, b: U)
 
-//given [T, U] as Eql[Box[T], Box[U]] given Eql[T, U] = Eql.derived
+given [T,U](given Eql[T,U]):  Eql[BoxA[T,U], BoxA[U,T]] = Eql.derived
 
-Box(1) == Box(1L)
+
+BoxA(1, 1L) == BoxA(1L, 1)
+
+
+case class BoxB[T,U](a: T, b: U)  derives Eql
+
+BoxB(1, 1L) == BoxB(1, 1L)
