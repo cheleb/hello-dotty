@@ -1,7 +1,7 @@
 import scala.quoted._
 
 object Config {
-  inline val logging = true
+  inline val logging = false
 }
 
 object Logger {
