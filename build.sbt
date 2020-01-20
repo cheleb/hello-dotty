@@ -4,7 +4,7 @@ lazy val root = (project in file(".")).
   settings(
     name := "dotty-simple",
     version := "0.1",
-
+     scalacOptions ++= Seq("-Yexplicit-nulls"),
 //    scalacOptions ++= Seq("-Ykind-projector", "-language:existentials,higherKinds,implicitConversions"),
 
     scalaVersion := dottyVersion,
