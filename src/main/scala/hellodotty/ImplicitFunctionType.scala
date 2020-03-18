@@ -4,7 +4,7 @@ import scala.concurrent.ExecutionContext
 
 import java.util.concurrent._
 
-type Executable[T] = (given ExecutionContext) => T 
+type Executable[T] = ExecutionContext ?=> T 
 
 
 
@@ -14,8 +14,8 @@ object ImplicitFunctionTypeApp extends App {
   val es: ExecutorService | Null = Executors.newCachedThreadPool
 
   if(es != null ) {
-    given ec: ExecutionContext = ExecutionContext.fromExecutorService(es)
-    val f1 = f(22)(given ec)
+    implicit val ec = ExecutionContext.fromExecutorService(es)
+    val f1 = f(22)(using ec)
     println(f1)
   }      
 }

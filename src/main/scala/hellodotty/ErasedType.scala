@@ -24,11 +24,11 @@ object IsOn {
 
 
 class Machine[S <: State]{
-    def turnOn(given erased ev: IsOff[S]): Machine[On] = {
+    def turnOn(using erased ev: IsOff[S]): Machine[On] = {
         println("Wroum wroum")
         new Machine[On]
     }
-    def turnOff(given erased  ev: IsOn[S]): Machine[Off] = {
+    def turnOff(using erased  ev: IsOn[S]): Machine[Off] = {
         println("Plop")
         new Machine[Off]
     }
