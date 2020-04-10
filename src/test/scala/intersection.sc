@@ -1,21 +1,39 @@
 trait Resetable {
-    def reset(): Resetable
-    def split(): List[Resetable]
+    def reset(): Unit
 }
 
 trait Growable[T] {
-    def add(x: T): Growable[T]
-    def split(): List[Growable[T]]
+    def add(x: T): Unit
 }
 
 
-class AString(value: String) extends Resetable with Growable[String]{
-    def reset() = AString("")
-    def add(str: String) = AString(s"$value$str")
-    def split() = value.split("").toList.map(AString(_))
+class AString(var value: String) extends Resetable with Growable[String]{
+    def reset(): Unit = value = ""
+    def add(str: String): Unit = value = s"$value, $str"
+    override def toString = value
 }
 
-val a = AString("iii")
-a.split()
+def f(x: Resetable & Growable[String] ) = {
+    x.reset()
+    x.add("first")
+}
+
+trait A {
+    def children: List[A]
+}
+
+trait B {
+    def children: List[B]
+}
+
+class C extends A with B {
+   def children: List[A & B] = List.empty
+
+}
+
+val x: A & B = new C
+
+x.children
+
 
 
