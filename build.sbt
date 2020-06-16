@@ -7,9 +7,8 @@ lazy val root = (project in file(".")).
      scalacOptions ++= Seq("-Yexplicit-nulls", "-Yerased-terms", "-Xfatal-warnings"),
 //    scalacOptions ++= Seq("-Ykind-projector", "-language:existentials,higherKinds,implicitConversions"),
 
-    scalaVersion := dottyVersion,
 //    scalafmtOnCompile := true,
     libraryDependencies +=  ("org.typelevel" %% "cats-core" % "2.1.1").withDottyCompat(scalaVersion.value),
+    scalaVersion := dottyVersion
 
-    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
   )
