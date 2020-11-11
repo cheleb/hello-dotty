@@ -1,29 +1,34 @@
 package hellodotty
 
 trait Resetable {
-
   def reset(): Unit
+  def children: List[Resetable]
 }
 
-trait Printable {
-  def str: String
+trait Growable[T] {
+  def add(t: T): Unit
+  def children: List[Growable[T]]
 }
 
-class Counter(name: String) extends Resetable with Printable {
+class Counter(name: String) extends Resetable with Growable[String] {
 
-  var count = 0
+  var values = List.empty[Resetable & Growable[String]]
 
-  def reset() = count = 0
+  def add(str: String) = values :+= Counter(str)
+
+  def reset() = values = values.empty
 
   def str = name
+
+  def children=List.empty
 
 }
 
 object Main extends App {
 
-  def testInter(v: Resetable & Printable): Unit = {
+  def testInter(v: Resetable & Growable[String]): Unit = {
     v.reset()
-    println(v.str)
+    v.add("helo")
   }
 
   val myCounter = new Counter("olivier")

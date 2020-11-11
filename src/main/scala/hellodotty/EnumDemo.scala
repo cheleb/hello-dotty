@@ -13,4 +13,9 @@ object Test {
     case ONE =>()
     case TWO => ()
   }
+
+  def test(color: Color) = color match {
+    case Color.Blue => ()
+    case _ => 
+  }
 }
