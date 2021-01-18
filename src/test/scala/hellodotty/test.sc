@@ -1,3 +1,5 @@
+// scala 3.0.0-M1
+
 import scala.math.pow
 
 //@annotation.tailrec
@@ -19,10 +21,10 @@ def isZarbDiv(n: Int) : Boolean =
     decomposeTail(n).map(i=>pow(i, 3)).sum == n
     
 
-(1 to 1000) filter isZarbDiv
+val mm = (1 to 1000) filter isZarbDiv
 
-
-decomposeTail(371)
+val _ = println("kkkk")
+//decomposeTail(371)
 
 
 

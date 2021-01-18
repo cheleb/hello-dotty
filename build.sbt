@@ -1,3 +1,5 @@
+val dottyVersion = "3.0.0-M3"
+
 lazy val root = (project in file(".")).
   settings(
     name := "dotty-simple",
@@ -6,7 +8,7 @@ lazy val root = (project in file(".")).
 //    scalacOptions ++= Seq("-Ykind-projector", "-language:existentials,higherKinds,implicitConversions"),
 
 //    scalafmtOnCompile := true,
-    libraryDependencies +=  ("org.typelevel" %% "cats-core" % "2.2.0").withDottyCompat(scalaVersion.value),
-    scalaVersion := "3.0.0-M1"
+//    libraryDependencies +=  ("org.typelevel" %% "cats-core" % "2.3.1").withDottyCompat(scalaVersion.value),
+    scalaVersion := dottyVersion
 
   )

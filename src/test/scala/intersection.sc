@@ -33,7 +33,7 @@ class C extends A with B {
 
 val x: A & B = new C
 
-x.children
+val m = x.children
 
 
 
