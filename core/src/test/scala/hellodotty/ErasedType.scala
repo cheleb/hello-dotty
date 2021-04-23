@@ -1,3 +1,4 @@
+/*
 package hellodotty
 
 object ErasedTypeSpec extends App {
@@ -11,3 +12,4 @@ object ErasedTypeSpec extends App {
   var list = List(1, 2)
 
 }
+*/

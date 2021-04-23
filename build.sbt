@@ -1,14 +1,26 @@
-val dottyVersion = "3.0.0-M3"
+val latestScala3Version = "3.0.0-RC3"
+
+inThisBuild(
+  Seq(
+     scalacOptions ++= Seq("-Yexplicit-nulls", "-Xfatal-warnings"),
+  )
+)
+
 
 lazy val root = (project in file(".")).
   settings(
-    name := "dotty-simple",
-    version := "0.1",
-     scalacOptions ++= Seq("-Yexplicit-nulls", "-Yerased-terms", "-Xfatal-warnings"),
-//    scalacOptions ++= Seq("-Ykind-projector", "-language:existentials,higherKinds,implicitConversions"),
+    name := "hello-dotty",
+    version := "0.1"
+  ).aggregate(core, zio)
 
-//    scalafmtOnCompile := true,
-//    libraryDependencies +=  ("org.typelevel" %% "cats-core" % "2.3.1").withDottyCompat(scalaVersion.value),
-    scalaVersion := dottyVersion
+lazy val core = (project in file("core"))
+.settings(
+   scalaVersion := latestScala3Version
+)
 
-  )
+
+lazy val zio = (project in file("zio"))
+.settings(
+   scalaVersion := "3.0.0-RC2",
+   libraryDependencies +=  ("dev.zio" %% "zio" % "1.0.6"),//.withDottyCompat(scalaVersion.value),
+)

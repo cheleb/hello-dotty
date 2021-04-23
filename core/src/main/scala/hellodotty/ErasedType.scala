@@ -9,6 +9,8 @@ final class On extends State
 
 final class Off extends State
 
+/*
+
 @implicitNotFound("State must be off")
 class IsOff[A <: State]
 object IsOff {
@@ -33,3 +35,5 @@ class Machine[S <: State]{
         new Machine[Off]
     }
  }
+
+ */
