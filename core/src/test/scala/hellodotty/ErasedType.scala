@@ -7,9 +7,6 @@ object ErasedTypeSpec extends App {
 
   m.turnOn.turnOff
 
-  class Faust
-
-  var list = List(1, 2)
 
 }
-*/
+ */

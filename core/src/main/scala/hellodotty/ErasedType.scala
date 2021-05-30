@@ -1,6 +1,5 @@
 package hellodotty
 
-
 import scala.annotation.implicitNotFound
 
 sealed trait State

@@ -1,7 +1,7 @@
 package hellodotty
 
 object Even {
-  def unapply(str: String): Boolean = str.size % 2 == 0 
+  def unapply(str: String): Boolean = str.size % 2 == 0
 }
 
 class FirstChar(s: String) extends Product {
@@ -21,13 +21,13 @@ object FirstChar {
 object TestPatternApp extends App {
 
   "even" match {
-    case s @ Even() => println(s"$s has even number of character") 
-    case s  => println(s"$s has odd number of character") 
+    case s @ Even() => println(s"$s has even number of character")
+    case s => println(s"$s has odd number of character")
   }
 
   "Hi!" match {
-    case FirstChar(c1, c2) => 
-    println(s"Char1: $c1, char2: $c2")
+    case FirstChar(c1, c2) =>
+      println(s"Char1: $c1, char2: $c2")
   }
 
-} 
+}

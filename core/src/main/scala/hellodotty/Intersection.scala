@@ -20,7 +20,7 @@ class Counter(name: String) extends Resetable with Growable[String] {
 
   def str = name
 
-  def children=List.empty
+  def children = List.empty
 
 }
 

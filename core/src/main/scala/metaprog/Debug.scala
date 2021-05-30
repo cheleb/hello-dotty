@@ -4,7 +4,7 @@ import scala.quoted._
 
 
 object Debug {
-    inline def debug(): Unit = println("Hello, world!")
+    inline def    debug(): Unit = println("Hello, world!")
 
     def debugSimpleImpl(expr: Expr[Any])(using Quotes): Expr[Unit]=
         '{println("Value of" + ${Expr(expr.show)} + " is " + ${expr})} 

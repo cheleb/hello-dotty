@@ -3,7 +3,7 @@ package hellodotty
 import scala.quoted._
 
 object PowerMacro {
-
+  
 
 inline def assert(expr: => Boolean): Unit =
   ${ assertImpl('expr) }
@@ -16,5 +16,5 @@ def assertImpl(expr: Expr[Boolean])(using Quotes) = '{
 
 def showExpr(expr: Expr[Boolean])(using Quotes): Expr[String] =
   '{ "<some source code>" } // Better implementation later in this document
-
-  }
+   
+}
