@@ -24,7 +24,8 @@ lazy val core = (project in file("core"))
 
 lazy val zio = (project in file("zio"))
   .settings(
-    scalaVersion := "3.0.0",
-    libraryDependencies ++= Seq("zio", "zio-test").map("dev.zio" %% _ % "1.0.8")
+    scalaVersion := "3.0.1",
+    libraryDependencies ++= Seq("zio", "zio-test", "zio-test-sbt").map("dev.zio" %% _ % "1.0.9"),
+    testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
 //    libraryDependencies += "org.scalameta" %% "scalameta" % "4.4.14"
   )

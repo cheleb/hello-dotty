@@ -1,8 +1,8 @@
-
 enum Color {
-    case Red,Blue, Green
+  case Red, Blue, Green
 }
 
 def testColor(color: Color) = color match {
-    case Color.Red =>
+  case Color.Blue =>
+  case _ =>
 }

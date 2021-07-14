@@ -1,7 +1,17 @@
 package hellodotty
 
+trait Philosophical(message: String):
+  def philosophize = message
+
+class Animal
+
+class ProfondAnimal extends Animal, Philosophical("Am I")
+trait PhilosophicalAnimal extends Animal with Philosophical
+
+class Frog extends PhilosophicalAnimal, Philosophical("Croak")
+
 trait Debugable(f: String) {
-  def format = f
+  def format: String = f
 }
 
 trait RunnableBug extends Debugable {
@@ -17,5 +27,7 @@ object TraitsParameters extends App {
   val m = new MyClass
 
   m.debug()
+
+  println(new Frog().philosophize)
 
 }
